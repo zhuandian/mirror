@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".business.activity.HelpOtherAcitvity">
+
+    <include layout="@layout/layout_top_bar" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:text="请在下面输入框输入取件码"
+        android:textColor="@color/colorPrimary"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/et_expressId"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/edittext_background"
+        android:hint="请输入快递编号"
+        android:paddingLeft="10dp" />
+
+    <TextView
+        android:id="@+id/tv_fetch_express"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="30dp"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:text="点我查询"
+        android:textColor="@color/white"
+        android:textSize="19sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+</LinearLayout>

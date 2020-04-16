@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eeeeee"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        android:background="@color/colorPrimary">
+
+        <com.zhuandian.view.CircleImageView
+            android:id="@+id/iv_header"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/icon_audio" />
+
+        <TextView
+            android:id="@+id/tv_nick_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iv_header"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="昵称"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_history"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:text="取件记录" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp" />
+
+    <TextView
+        android:id="@+id/tv_overdue"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:text="逾期查询" />
+
+
+    <TextView
+        android:id="@+id/tv_more_setting"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="50dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:text="更多设置" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <TextView
+        android:id="@+id/tv_logout"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_margin="20dp"
+        android:background="#f00"
+        android:gravity="center"
+        android:text="注销登录"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+</LinearLayout>

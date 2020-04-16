@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:layout_marginTop="10dp"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_express_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:text="题目"
+        android:textColor="@color/color_333333"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tv_type"
+        android:layout_width="wrap_content"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:layout_height="30dp"
+        android:layout_alignParentRight="true"
+        android:background="#FF9100"
+        android:gravity="center"
+        android:text="易碎品"
+        android:textColor="@color/white"
+        android:textSize="13sp" />
+
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_express_title"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="20dp"
+        android:ellipsize="end"
+        android:lines="2"
+        android:text="内里的水离开房间阿萨德离开房间来看的撒弗兰克斯大福建烤老鼠大fklsdajfklsadfjlkas逢狼时刻大幅拉卡萨离开是打飞机克雷登斯"
+        android:textColor="@color/color_333333"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/tv_local"
+        android:textSize="12sp"
+        android:layout_above="@+id/tv_time"
+        android:layout_marginLeft="15dp"
+        android:text="取件地点：化工路"
+        android:textColor="#999999"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10dp"
+        android:text="取件时间:2020-03-22"
+        android:textColor="#999999"
+        android:textSize="12sp" />
+    <TextView
+        android:id="@+id/tv_end_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10dp"
+        android:text="距离截止时间还剩3天"
+        android:textColor="#ff0000"
+        android:textSize="12sp" />
+</RelativeLayout>

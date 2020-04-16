@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.PictureDetailActivity">
+
+    <include layout="@layout/layout_top_bar" />
+
+    <ImageView
+        android:id="@+id/iv_img"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scaleType="centerCrop" />
+
+    <TextView
+        android:id="@+id/tv_send"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_margin="40dp"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:text="发 送"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+</LinearLayout>

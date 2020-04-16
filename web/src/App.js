@@ -49,7 +49,7 @@ class App extends Component {
 
                 {contentEntity.type == 2 ? <span>{contentEntity.content}</span> : ""}
 
-                {contentEntity.type == 3 ? <video src={contentEntity.content} controls="autoplay" width="100%" height="100%"/> : ""}
+                {contentEntity.type == 3 ? <video src={contentEntity.content} controls="autoplay" autoPlay="autoplay" width="100%" height="100%"/> : ""}
 
             </div>
         );

@@ -31,4 +31,15 @@
         android:text="发 送"
         android:textColor="@color/white"
         android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tv_close"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_margin="40dp"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:text="关 闭"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
 </LinearLayout>

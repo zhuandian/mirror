@@ -1,6 +1,7 @@
 package com.zhuandian.mirror.fragment;
 
 import android.text.TextUtils;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -50,8 +51,58 @@ public class TextFragment extends BaseFragment {
 
     }
 
-    @OnClick(R.id.tv_send)
-    public void onViewClicked() {
+    @OnClick({R.id.tv_send,R.id.tv_close})
+    public void onViewClicked(View view) {
+
+        switch (view.getId()){
+            case R.id.tv_send:
+                sendText2Web();
+                break;
+            case R.id.tv_close:
+
+                BmobQuery<SendEntity> query = new BmobQuery<>();
+                query.findObjects(new FindListener<SendEntity>() {
+                    @Override
+                    public void done(List<SendEntity> list, BmobException e) {
+                        if (e == null && list.size() > 0) {
+                            SendEntity sendEntity = list.get(0);
+                            sendEntity.setOpen(false);
+                            sendEntity.setCode(sendEntity.getCode() + 1);
+                            sendEntity.update(new UpdateListener() {
+                                @Override
+                                public void done(BmobException e) {
+                                    if (e == null) {
+                                        Toast.makeText(actitity, "关闭成功", Toast.LENGTH_SHORT).show();
+                                        etTextContent.setText("");
+                                    }
+                                }
+                            });
+                        } else {
+                            SendEntity sendEntity = new SendEntity();
+                            sendEntity.setOpen(false);
+                            sendEntity.setCode(0);
+                            sendEntity.save(new SaveListener<String>() {
+                                @Override
+                                public void done(String s, BmobException e) {
+                                    if (e == null) {
+                                        Toast.makeText(actitity, "关闭成功", Toast.LENGTH_SHORT).show();
+                                        etTextContent.setText("");
+                                    }
+                                }
+                            });
+                        }
+                    }
+                });
+
+                break;
+
+        }
+
+
+
+    }
+
+    private void sendText2Web() {
         content = etTextContent.getText().toString();
         if (TextUtils.isEmpty(content)) {
             Toast.makeText(actitity, "发送内容不允许为空", Toast.LENGTH_SHORT).show();
@@ -72,6 +123,7 @@ public class TextFragment extends BaseFragment {
                                 SendEntity sendEntity = list.get(0);
                                 sendEntity.setContentEntity(contentEntity);
                                 sendEntity.setCode(sendEntity.getCode() + 1);
+                                sendEntity.setOpen(true);
                                 sendEntity.update(new UpdateListener() {
                                     @Override
                                     public void done(BmobException e) {
@@ -85,6 +137,7 @@ public class TextFragment extends BaseFragment {
                                 SendEntity sendEntity = new SendEntity();
                                 sendEntity.setContentEntity(contentEntity);
                                 sendEntity.setCode(0);
+                                sendEntity.setOpen(true);
                                 sendEntity.save(new SaveListener<String>() {
                                     @Override
                                     public void done(String s, BmobException e) {
@@ -100,7 +153,5 @@ public class TextFragment extends BaseFragment {
                 }
             }
         });
-
-
     }
 }

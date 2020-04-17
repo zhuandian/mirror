@@ -53,19 +53,22 @@ public class PictureDetailActivity extends BaseActivity {
 
 
 
-    @OnClick({R.id.iv_back, R.id.tv_send})
+    @OnClick({R.id.iv_back, R.id.tv_send,R.id.tv_close})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.iv_back:
                 finish();
                 break;
             case R.id.tv_send:
-                sendImg2Web();
+                sendImg2Web(true);
+                break;
+            case R.id.tv_close:
+                sendImg2Web(false);
                 break;
         }
     }
 
-    private void sendImg2Web() {
+    private void sendImg2Web(boolean isOpen) {
         BmobQuery<SendEntity> query = new BmobQuery<>();
         query.findObjects(new FindListener<SendEntity>() {
             @Override
@@ -73,24 +76,26 @@ public class PictureDetailActivity extends BaseActivity {
                 if (e == null && list.size() > 0) {
                     SendEntity sendEntity = list.get(0);
                     sendEntity.setContentEntity(contentEntity);
+                    sendEntity.setOpen(isOpen);
                     sendEntity.setCode(sendEntity.getCode() + 1);
                     sendEntity.update(new UpdateListener() {
                         @Override
                         public void done(BmobException e) {
                             if (e == null) {
-                                Toast.makeText(PictureDetailActivity.this, "发送成功", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(PictureDetailActivity.this, "更新成功", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
                 } else {
                     SendEntity sendEntity = new SendEntity();
+                    sendEntity.setOpen(isOpen);
                     sendEntity.setContentEntity(contentEntity);
                     sendEntity.setCode(0);
                     sendEntity.save(new SaveListener<String>() {
                         @Override
                         public void done(String s, BmobException e) {
                             if (e == null) {
-                                Toast.makeText(PictureDetailActivity.this, "发送成功", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(PictureDetailActivity.this, "更新成功", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });

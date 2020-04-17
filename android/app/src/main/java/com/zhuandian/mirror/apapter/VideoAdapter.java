@@ -64,6 +64,7 @@ public class VideoAdapter extends BaseAdapter<ContentEntity, BaseViewHolder> {
                 if (e == null && list.size() > 0) {
                     SendEntity sendEntity = list.get(0);
                     sendEntity.setContentEntity(contentEntity);
+                    sendEntity.setOpen(true);
                     sendEntity.setCode(sendEntity.getCode() + 1);
                     sendEntity.update(new UpdateListener() {
                         @Override
@@ -77,6 +78,7 @@ public class VideoAdapter extends BaseAdapter<ContentEntity, BaseViewHolder> {
                     SendEntity sendEntity = new SendEntity();
                     sendEntity.setContentEntity(contentEntity);
                     sendEntity.setCode(0);
+                    sendEntity.setOpen(true);
                     sendEntity.save(new SaveListener<String>() {
                         @Override
                         public void done(String s, BmobException e) {
